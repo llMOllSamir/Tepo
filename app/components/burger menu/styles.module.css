@@ -1,0 +1,11 @@
+.nav {
+  transition: all 0.5s;
+  @apply shadow shadow-lg absolute  text-red-600
+    start-0 end-0 flex justify-start top-full items-center flex-col gap-3
+    overflow-hidden
+    font-bold text-sm h-0;
+}
+
+.show {
+  @apply h-40 py-5;
+}

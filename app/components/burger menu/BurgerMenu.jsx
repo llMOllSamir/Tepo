@@ -1,0 +1,79 @@
+"use client";
+import React, { useRef, useState } from "react";
+import styles from "./styles.module.css";
+import { SlMenu } from "react-icons/sl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import Dark from "../dark mood/Dark";
+
+export default function BurgerMenu() {
+  const [show, setShow] = useState(false);
+  const navLinks = useRef();
+  const icon = useRef();
+  const pathName = usePathname();
+
+  // links for routing
+  let links = [
+    { title: "HOME", ref: "/" },
+    { title: "PRODUCTS", ref: "/products" },
+    { title: "OFFERS", ref: "/offers" },
+  ];
+
+  // styling Icon
+  let handleShow = () => {
+    if (!show) {
+      icon.current.firstChild.classList.add("rotate-90");
+      setShow(true);
+      setTimeout(() => {
+        navLinks.current.classList.toggle(styles.show);
+      }, 100);
+    } else {
+      navLinks.current.classList.toggle(styles.show);
+      icon.current.firstChild.classList.remove("rotate-90");
+      setTimeout(() => {
+        setShow(false);
+      }, 500);
+    }
+  };
+
+  return (
+    <nav
+      ref={icon}
+      className=" col-start-12 select-none  md:hidden text-white  "
+    >
+      <SlMenu
+        size={"1.5rem"}
+        className="select-none transition-all duration-500 "
+        cursor={"pointer"}
+        onClick={handleShow}
+      />
+
+      {show && (
+        <ul
+          ref={navLinks}
+          className={` ${styles.nav} dark:bg-gray-800 bg-white`}
+        >
+          {links.map((link, index) => (
+            <li key={index}>
+              <Link
+                className={`${
+                  pathName === link.ref && " border-b-2   border-red-600 "
+                }`}
+                onClick={handleShow}
+                href={link.ref}
+              >
+                {link.title}
+              </Link>
+            </li>
+          ))}
+          <li
+            onClick={handleShow}
+            className=" flex gap-5  justify-center items-center"
+          >
+            <Dark />
+          </li>
+        </ul>
+      )}
+    </nav>
+  );
+}
