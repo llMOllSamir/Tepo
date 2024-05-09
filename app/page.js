@@ -51,15 +51,15 @@ export default function Home() {
 
       <ElectronicesSwiper />
 
-      <div className="flex justify-around px-5 items-center select-none my-16 bg-gradient-to-r h-48 from-[#410707] to-[#A0F891] ">
-        <div className="aspect-square bg-[#A0F891] text-[#410707] rounded-full w-20 md:w-36 md:text-4xl flex justify-center items-center text-xl">
+      <div className="flex justify-around px-3  gap-3   items-center select-none my-16 bg-gradient-to-r h-48 from-[#410707] to-[#A0F891] ">
+        <div className="aspect-square  bg-[#A0F891] text-[#410707] rounded-full w-1/6 sm:w-24 sm:text-2xl text-lg md:w-36 md:text-4xl flex justify-center items-center ">
           50 %
         </div>
-        <h3 className="text-white font-serif text-lg  sm:text-xl md:text-4xl ">
+        <h3 className="text-white font-serif text-base w-3/6  text-center sm:text-xl md:text-4xl ">
           buy one get one free
         </h3>
         <Image
-          className="w-32 sm:w-40 md:w-48"
+          className=" w-2/6  sm:w-40 md:w-48 "
           height={200}
           width={200}
           alt="offer"

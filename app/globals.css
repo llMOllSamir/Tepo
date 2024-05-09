@@ -16,7 +16,7 @@ body {
 }
 
 body > main {
-  @apply grow flex flex-col my-44 justify-stretch items-stretch;
+  @apply grow flex flex-col my-24 justify-stretch items-stretch;
 }
 
 @layer components {
