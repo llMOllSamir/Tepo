@@ -55,7 +55,7 @@ export default function Home() {
         <div className="aspect-square  bg-[#A0F891] text-[#410707] rounded-full w-1/6 sm:w-24 sm:text-2xl text-lg md:w-36 md:text-4xl flex justify-center items-center ">
           50 %
         </div>
-        <h3 className="text-white font-serif text-base w-3/6  text-center sm:text-xl md:text-4xl ">
+        <h3 className="text-white font-serif text-base w-3/6 sm:w-auto  text-center sm:text-xl md:text-4xl ">
           buy one get one free
         </h3>
         <Image
