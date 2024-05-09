@@ -5,6 +5,7 @@ import { SlMenu } from "react-icons/sl";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Dark from "../dark mood/Dark";
+import Translator from "../Translator";
 
 export default function BurgerMenu() {
   const [show, setShow] = useState(false);
@@ -14,9 +15,9 @@ export default function BurgerMenu() {
 
   // links for routing
   let links = [
-    { title: "HOME", ref: "/" },
-    { title: "PRODUCTS", ref: "/products" },
-    { title: "OFFERS", ref: "/offers" },
+    { en: "HOME", ar: "الرئيسيه", ref: "/" },
+    { en: "PRODUCTS", ar: "المنتجات", ref: "/products" },
+    { en: "OFFERS", ar: "العروض", ref: "/offers" },
   ];
 
   // styling Icon
@@ -56,13 +57,12 @@ export default function BurgerMenu() {
           {links.map((link, index) => (
             <li key={index}>
               <Link
-                className={`${
-                  pathName === link.ref && " border-b-2   border-red-600 "
-                }`}
+                className={`${pathName === link.ref && " border-b-2   border-red-600 "
+                  }`}
                 onClick={handleShow}
                 href={link.ref}
               >
-                {link.title}
+                <Translator arabic={link.ar} english={link.en} />
               </Link>
             </li>
           ))}

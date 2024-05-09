@@ -22,7 +22,7 @@ export default function ScrollUp() {
 
   return (
     <section
-      className={` col-span-3  -mx-4 md:-mx-16 md:static rounded-full md:rounded-none  fixed end-10 bottom-20 flex justify-center items-center transition-opacity ${
+      className={` col-span-3  -mx-4 md:-mx-16 md:static rounded-full md:rounded-none z-30  fixed end-10 bottom-20 flex justify-center items-center transition-opacity ${
         scrollY > 0 ? "opacity-100 " : "opacity-0"
       }  duration-1000  h-10 bg-red-600  -translate-y-6`}
     >

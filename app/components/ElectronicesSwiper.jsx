@@ -33,7 +33,7 @@ export default function ElectronicesSwiper() {
     }, [])
 
     return (
-        <div className='container px-16 mx-auto'>
+        <div className='container px-10 md:px-16 mx-auto'>
             {
                 <>
                     <h2 className='text-3xl font-semibold my-4' >Electronics</h2>
@@ -45,6 +45,7 @@ export default function ElectronicesSwiper() {
                         : <Swiper
                             className="w-full "
                             spaceBetween={5}
+                            loop
                             breakpoints={{
                                 600: {
                                     slidesPerView: 2,

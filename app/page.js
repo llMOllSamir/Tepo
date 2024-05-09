@@ -19,7 +19,7 @@ export default function Home() {
   ];
   return (
     <section className="grow">
-      <div className="container mx-auto grid grid-cols-1 gap-x-1 gap-y-5  md:grid-cols-2 px-24 mt-5">
+      <div className="container mx-auto grid grid-cols-1 gap-x-1 gap-y-5  md:grid-cols-2 px-10 md:px-24 mt-5">
         <HomeSwipr />
 
         <div className="flex flex-col justify-between h-full items-center gap-5">

@@ -12,6 +12,7 @@ export default function SwiperProvider({ list }) {
       spaceBetween={5}
       slidesPerView={1}
       centeredSlides={true}
+      loop={true}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,

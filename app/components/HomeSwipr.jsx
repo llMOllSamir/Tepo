@@ -17,6 +17,9 @@ export default function HomeSwipr() {
             spaceBetween={1}
             slidesPerView={1}
             centeredSlides={true}
+            allowTouchMove={true}
+            loop={true}
+            freeMode={true}
             autoplay={{
                 delay: 2000,
                 disableOnInteraction: false,
@@ -31,6 +34,7 @@ export default function HomeSwipr() {
                             src={img}
                             width={500}
                             height={500}
+                            loading='lazy'
                             alt={"image"}
                         />
                         <figcaption className='absolute mb-1  lg:mb-2 text-xl xl:mx-16  md:text-xl lg:text-2xl lg:mx-12 text-white   font-extrabold xl:text-3xl justify-center items-center flex bottom-0 start-0 bg-opacity-40 h-2/6 end-0 bg-gray-400'>
