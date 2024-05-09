@@ -57,7 +57,7 @@ export default function BurgerMenu() {
           {links.map((link, index) => (
             <li key={index}>
               <Link
-                className={`${pathName === link.ref && " border-b-2   border-red-600 "
+                className={`${pathName.split("/")[1] === link.ref.split("/")[1] && " border-b-2   border-red-600 "
                   }`}
                 onClick={handleShow}
                 href={link.ref}

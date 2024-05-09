@@ -51,11 +51,11 @@ export default function Home() {
 
       <ElectronicesSwiper />
 
-      <div className="flex justify-around items-center select-none my-16 bg-gradient-to-r h-48 from-[#410707] to-[#A0F891] ">
+      <div className="flex justify-around px-5 items-center select-none my-16 bg-gradient-to-r h-48 from-[#410707] to-[#A0F891] ">
         <div className="aspect-square bg-[#A0F891] text-[#410707] rounded-full w-20 md:w-36 md:text-4xl flex justify-center items-center text-xl">
           50 %
         </div>
-        <h3 className="text-white  text-xl md:text-4xl ">
+        <h3 className="text-white font-serif text-lg  sm:text-xl md:text-4xl ">
           buy one get one free
         </h3>
         <Image

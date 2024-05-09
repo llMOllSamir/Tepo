@@ -26,16 +26,22 @@ export default async function ProductDetails({ params }) {
   };
 
   let { data } = await getProductDetails();
+  console.log(data);
 
   return (
-    <section>
-      <Image
-        src={data.imageCover}
-        className="w-96"
-        alt={data.title}
-        width={500}
-        height={500}
-      />
+    <section className="container mx-auto   grid  grid-cols-3">
+      <div className=" ">
+        <Image
+          src={data.imageCover}
+          className="w-full"
+          alt={data.title}
+          width={200}
+          height={200}
+        />
+      </div>
+      <div className="col-span-2 h-full bg-red-600">
+
+      </div>
     </section>
   );
 }

@@ -15,6 +15,7 @@ export default function NavBar() {
 
   let activeLink = styles.active;
   let pathName = usePathname();
+  console.log(pathName.split("/")[1]);
   return (
     <nav
       className={`bg-white fixed z-10 inset-x-0 top-20  shadow shadow-sm h-14 shadow-black hidden justify-between  items-center px-12  
@@ -27,9 +28,8 @@ export default function NavBar() {
           <li key={index}>
             <Link
               scroll={true}
-              className={`${styles.link} ${
-                pathName === link.ref ? activeLink : ""
-              } rtl:text-base`}
+              className={`${styles.link} ${pathName.split("/")[1] === (link.ref).split("/")[1] ? activeLink : ""
+                } rtl:text-base`}
               href={link.ref}
             >
               <Translator arabic={link.ar} english={link.en} />
