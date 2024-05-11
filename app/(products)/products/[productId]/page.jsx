@@ -1,7 +1,8 @@
 import BtnCart from "@/app/components/AddToCart";
-import Image from "next/image";
-import React from "react";
-import { FaStar } from "react-icons/fa6";
+import React, { Suspense } from "react";
+import { FaSpinner, FaStar } from "react-icons/fa6";
+import ImageSlider from "./ImageSlider";
+import RecomndedProducts from "./RecomndedProducts";
 /**handle meta data description and title  */
 export async function generateMetadata({ params }) {
   let { productId } = params;
@@ -28,20 +29,13 @@ export default async function ProductDetails({ params }) {
   };
 
   let { data } = await getProductDetails();
-  console.log(data);
 
   return (
-    <section className="container mx-auto select-none   grid  grid-cols-3">
-      <div className="">
-        <Image
-          src={data.imageCover}
-          className="w-full aspect-[9 / 16] "
-          alt={data.title}
-          width={200}
-          height={200}
-        />
-      </div>
-      <div className="col-span-2 h-full  divide-y-4 space-y-5  p-5">
+    <section className=" mx-auto select-none container  grid  grid-cols-1 sm:grid-cols-3">
+
+      <ImageSlider title={data.title} imageCover={data.imageCover} images={data.images} />
+
+      <div className="sm:col-span-2 h-full  divide-y-4 space-y-5  p-5">
         <div className="flex flex-col gap-10">
           <h1 className="text-2xl font-serif font-bold">{data.title}</h1>
           <div className="flex gap-3">  {"stars".split("").map((_, index) => (
@@ -58,12 +52,23 @@ export default async function ProductDetails({ params }) {
         </div>
         <div className="py-5 text-gray-500 space-y-8 dark:text-gray-300">
           <p className="font-semibold text-base  md:text-lg "> List Price : <span> {data.price} <sup> EGP</sup> </span></p>
+          <p className="font-semibold text-base  md:text-lg "> Brand : <span className="text-red-600"> {data.brand.name}  </span></p>
           <p className="font-semibold text-base  md:text-lg ">
             {data.description}
           </p>
         </div>
         <div className="py-5">
           <BtnCart product={data} /></div>
+      </div>
+      <div className="my-3 pt-3 border-t-2 border-gray-500 border-opacity-55 col-span-1 sm:col-span-3">
+        <h3 className="font-semibold text-lg px-5 my-3">
+          Products related to this item
+        </h3>
+        <Suspense fallback={<div className="flex mx-auto justify-center items-center text-red-600  ">
+          <FaSpinner className='  animate-spin' size={"4rem"} />
+        </div>}>
+          <RecomndedProducts category={data.subcategory[0]._id} />
+        </Suspense>
       </div>
     </section>
   );

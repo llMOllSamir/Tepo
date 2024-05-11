@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "../components/(card)/Card";
-
+import Card from "../../components/(card)/Card";
+ 
 /** handle meta title and description  */
 export const metadata = {
   title: "Products",
