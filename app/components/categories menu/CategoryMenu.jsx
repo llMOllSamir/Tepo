@@ -38,13 +38,13 @@ export default function CategoryMenu() {
     <section
       onMouseEnter={handleOpen}
       onMouseLeave={handleOut}
-      className="relative h-full flex justify-center items-center "
+      className="relative h-full z-30 flex justify-center items-center "
     >
       <h2 onClick={handleCategoryClick} className="text-red-600 select-none cursor-pointer font-bold  md:text-base text-sm">
         Categories
       </h2>
       {open && (
-        <ul className="absolute top-full  py-4 select-none rounded-e-xl rounded-t-none bg-white  -start-7 w-52   shadow-black  shadow-md ">
+        <ul className="absolute top-full z-30  py-4 select-none rounded-e-xl rounded-t-none bg-white  -start-7 w-52   shadow-black  shadow-md ">
           {categoriesList.length > 0 &&
             categoriesList.map((category) => (
               <li
@@ -61,7 +61,7 @@ export default function CategoryMenu() {
             ))}
           {subForCategory.length > 0 && (
             <li>
-              <ul className="absolute start-full  top-0 h-full overflow-auto  w-72 flex px-6 flex-col py-4   rounded-lg rounded-s-none shadow-md   shadow-black bg-red-100 ">
+              <ul className="absolute start-full z-30  top-0 h-full overflow-auto  w-72 flex px-6 flex-col py-4   rounded-lg rounded-s-none shadow-md   shadow-black bg-gradient-to-l from-red-400 to-red-100 ">
                 <caption className="font-bold text-start py-3 text-red-600   text-lg">
                   {selectedCategory}
                 </caption>

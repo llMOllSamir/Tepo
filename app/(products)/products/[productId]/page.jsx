@@ -12,7 +12,9 @@ export async function generateMetadata({ params }) {
   ).then((res) => res.json());
 
   return {
-    title: data.title,
+    title: {
+      absolute: data.title
+    },
     description: data.description,
   };
 }
@@ -58,15 +60,17 @@ export default async function ProductDetails({ params }) {
           </p>
         </div>
         <div className="py-5">
-          <BtnCart product={data} /></div>
+          <BtnCart product={data} />
+        </div>
       </div>
       <div className="my-3 pt-3 border-t-2 border-gray-500 border-opacity-55 col-span-1 sm:col-span-3">
         <h3 className="font-semibold text-lg px-5 my-3">
           Products related to this item
         </h3>
-        <Suspense fallback={<div className="flex mx-auto justify-center items-center text-red-600  ">
-          <FaSpinner className='  animate-spin' size={"4rem"} />
-        </div>}>
+        <Suspense fallback={
+          <div className="flex mx-auto justify-center items-center text-red-600  ">
+            <FaSpinner className='  animate-spin' size={"4rem"} />
+          </div>}>
           <RecomndedProducts category={data.subcategory[0]._id} />
         </Suspense>
       </div>

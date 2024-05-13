@@ -9,7 +9,7 @@ import BtnCart from "../AddToCart";
 export default function Card({ product }) {
   return (
     <div className="card">
-      <div className="box rounded-lg ">
+      <div className="box rounded-lg min-h-80 ">
         <div className="front flex justify-center cursor-pointer items-center">
           <SwiperProvider list={product} />
         </div>
