@@ -18,6 +18,7 @@ export default async function SubcategoryDetailes({ params }) {
     `https://ecommerce.routemisr.com/api/v1/products?subcategory[in]=${subCategory[0]._id}`
   );
   let { data: products } = await response.json();
+  
   return (
     <div className=" my-10 container gap-10 mx-auto grid sm:grid-cols-2 px-16  sm:px-2 grid-cols-1 md:grid-cols-3  lg:grid-cols-5 xl:grid-cols-6">
       {products.map((product) => (
@@ -32,7 +33,7 @@ export default async function SubcategoryDetailes({ params }) {
             href={"/category/subcategory"}
             className="px-5 py-2 rounded-2xl text-sm md:text-lg bg-red-600 text-white font-semibold"
           >
-            Check Categories
+            Check Sub Categories
           </Link>
         </div>
       )}

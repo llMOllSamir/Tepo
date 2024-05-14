@@ -3,6 +3,7 @@ import React, { Suspense } from "react";
 import { FaSpinner, FaStar } from "react-icons/fa6";
 import ImageSlider from "./ImageSlider";
 import RecomndedProducts from "./RecomndedProducts";
+import Link from "next/link";
 /**handle meta data description and title  */
 export async function generateMetadata({ params }) {
   let { productId } = params;
@@ -54,7 +55,8 @@ export default async function ProductDetails({ params }) {
         </div>
         <div className="py-5 text-gray-500 space-y-8 dark:text-gray-300">
           <p className="font-semibold text-base  md:text-lg "> List Price : <span> {data.price} <sup> EGP</sup> </span></p>
-          <p className="font-semibold text-base  md:text-lg "> Brand : <span className="text-red-600"> {data.brand.name}  </span></p>
+          <p className="font-semibold text-base  md:text-lg "> Brand :<Link href={`/brand/${data.brand.slug}`} className="text-red-600">
+            {data.brand.name}   </Link> </p>
           <p className="font-semibold text-base  md:text-lg ">
             {data.description}
           </p>

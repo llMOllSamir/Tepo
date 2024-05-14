@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../../components/(card)/Card";
- 
+
 /** handle meta title and description  */
 export const metadata = {
   title: "Products",
@@ -16,12 +16,14 @@ export default async function Products({ params, searchParams }) {
   products = await products.json()
 
   return (
-    <section className=" grow my-10 container gap-10 mx-auto grid grid-cols-1 px-16  sm:px-2  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
-      {products.data.map((product) => (
-        <>
-          <Card key={product._id} product={product} />
-        </>
-      ))}
+    <section className=" grow ">
+      <div className="my-10 container gap-10 mx-auto grid sm:grid-cols-2 px-16  sm:px-2 grid-cols-1 md:grid-cols-3  lg:grid-cols-5 xl:grid-cols-6">
+        {products.data.map((product) => (
+          <>
+            <Card key={product._id} product={product} />
+          </>
+        ))}
+      </div>
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -15,7 +14,6 @@ export default async function subcategory() {
     }
   );
   let { data: subCategories } = await data.json();
-  console.log(subCategories);
   return (
     <div className=" my-10 container gap-5 mx-auto grid grid-cols-2 px-16  sm:px-2  sm:grid-cols-3  lg:grid-cols-5  ">
       {subCategories.map((subCategory) => (
