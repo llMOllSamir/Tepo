@@ -19,10 +19,12 @@ export default async function CategoryDetailes({ params }) {
   );
   let { data: products } = await response.json();
   return (
-    <div className=" my-10 container gap-10 mx-auto grid grid-cols-1 sm:grid-cols-2 px-16  sm:px-2  md:grid-cols-3  lg:grid-cols-5 xl:grid-cols-6">
-      {products.map((product) => (
-        <Card key={product._id} product={product} />
-      ))}
+    <div className=" my-10 ">
+      <div className="container gap-10 mx-auto grid grid-cols-1 sm:grid-cols-2 px-16  sm:px-2  md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
+        {products.map((product) => (
+          <Card key={product._id} product={product} />
+        ))}
+      </div>
       {products.length === 0 && (
         <div className="  col-span-6 gap-6 flex flex-col justify-center items-center">
           <h1 className="font-extrabold text-red-600  text-base md:text-xl lg:text-2xl xl:text-3xl">

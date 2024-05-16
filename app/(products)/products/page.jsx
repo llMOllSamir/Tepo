@@ -17,7 +17,7 @@ export default async function Products({ params, searchParams }) {
 
   return (
     <section className=" grow ">
-      <div className="my-10 container gap-10 mx-auto grid sm:grid-cols-2 px-16  sm:px-2 grid-cols-1 md:grid-cols-3  lg:grid-cols-5 xl:grid-cols-6">
+      <div className="my-10 container gap-10 mx-auto grid sm:grid-cols-2 px-16  sm:px-2 grid-cols-1 md:grid-cols-3  lg:grid-cols-4 xl:grid-cols-5">
         {products.data.map((product) => (
           <>
             <Card key={product._id} product={product} />
