@@ -17,13 +17,14 @@ export const metadata = {
   `,
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html lang="en" className="scroll-smooth">
       <body >
         <ReduxProvider>
           <Header />
           <NavBar />
+          {modal}
           <main>{children}</main>
           <ButtomNav />
           <Footer />

@@ -1,23 +1,31 @@
 "use client";
 import React from "react";
 import { CiShoppingCart } from "react-icons/ci";
-import { addToCartOffline } from "../Redux/slices/cartSlice";
-import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/slices/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
+import { FaSpinner } from "react-icons/fa";
 
-export default function BtnCart({ product ,className=""}) {
+export default function BtnCart({ product, className = "" }) {
   const dispatch = useDispatch();
+  const { token } = useSelector(state => state.user)
+  const { status } = useSelector(state => state.cart)
+  const router = useRouter();
   let addProduct = () => {
-    if (localStorage.getItem("token")) {
+    if (token) {
+      dispatch(addToCart(product?._id))
     } else {
-      dispatch(addToCartOffline(product));
+      router.push("/login")
     }
   };
+
   return (
     <button
       onClick={addProduct}
       className={className}
     >
-      add to <CiShoppingCart fontSize={"20px"}  />
+      {(status.loading && status.product === product?._id) ? <FaSpinner size={20} className="animate-spin" />
+        : <>add to <CiShoppingCart fontSize={"20px"} /></>}
     </button>
   );
 }

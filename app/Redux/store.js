@@ -4,7 +4,7 @@ import category from "./slices/categoriesSlice";
 import darkMood from "./slices/darkMoodSlice";
 import lang from "./slices/langSlice";
 import cart from "./slices/cartSlice";
-
+import user from "./slices/userSlice";
 export const store = configureStore({
   reducer: {
     product,
@@ -12,5 +12,6 @@ export const store = configureStore({
     darkMood,
     lang,
     cart,
+    user
   },
 });

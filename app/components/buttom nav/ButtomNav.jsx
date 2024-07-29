@@ -8,12 +8,44 @@ import { CiShoppingCart } from "react-icons/ci";
 import { GoPerson } from "react-icons/go";
 import { BiCategory } from "react-icons/bi";
 import { IoSearchOutline } from "react-icons/io5";
-
+import { CiLogin } from "react-icons/ci";
 import { usePathname } from "next/navigation";
 import Translator from "../Translator";
 import { useSelector } from "react-redux";
 export default function ButtomNav() {
   let { cartList } = useSelector((state) => state.cart);
+  const { token } = useSelector(state => state.user)
+  const protectedIcons = useMemo(() => {
+    if (!token) {
+      return [{
+        element: CiLogin,
+        title: { ar: "تسجيل", en: "LOGIN" },
+        ref: "/auth/login",
+        counter: null
+      }]
+    } else {
+      return [{
+        element: FaRegHeart,
+        title: { ar: "المفضله", en: "WISH LIST" },
+        ref: "/wishlist",
+        counter: null,
+      },
+      {
+        element: CiShoppingCart,
+        title: { ar: "السله", en: "Cart" },
+        ref: "/cart",
+        counter: cartList.length || null,
+      },
+      {
+        element: GoPerson,
+        title: { ar: "الشخصيه", en: "Profile" },
+        ref: "/profile",
+        counter: null,
+      },]
+    }
+  }, [cartList, token])
+
+
   let links = useMemo(() => {
     return [
       {
@@ -35,26 +67,10 @@ export default function ButtomNav() {
         ref: "/search",
         counter: null,
       },
-      {
-        element: CiShoppingCart,
-        title: { ar: "السله", en: "Cart" },
-        ref: "/cart",
-        counter: cartList.length || null,
-      },
-      {
-        element: FaRegHeart,
-        title: { ar: "المفضله", en: "WISH LIST" },
-        ref: "/wishlist",
-        counter: 0,
-      },
-      {
-        element: GoPerson,
-        title: { ar: "الشخصيه", en: "Profile" },
-        ref: "/profile",
-        counter: null,
-      },
+
+      ...protectedIcons
     ];
-  }, [cartList]);
+  }, [protectedIcons]);
 
   let pathName = usePathname();
 
@@ -66,9 +82,8 @@ export default function ButtomNav() {
       {links.map((element, index) => (
         <Link
           key={index}
-          className={`w-20 flex  flex-col justify-center relative items-center ${
-            HandlePath(element.ref) ? "text-red-600" : ""
-          }`}
+          className={`w-20 flex  flex-col justify-center relative items-center ${HandlePath(element.ref) ? "text-red-600" : ""
+            }`}
           href={element.ref}
         >
           <element.element
