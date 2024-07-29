@@ -97,7 +97,7 @@ export default function Login() {
                         </button>
                             : <input type="submit" className='w-1/2 mx-auto bg-red-600 px-5 py-2 rounded-lg text-white font-bold cursor-pointer' value={"Login"} />
                     }
-                    <p className='text-center text-sm  font-bold'> Don't have an account ? <span className='text-red-600 cursor-pointer' onClick={() => { handleClose("/auth/signup") }}>Register</span></p>
+                    <p className='text-center text-sm  font-bold'> Don&apos;t have an account ? <span className='text-red-600 cursor-pointer' onClick={() => { handleClose("/auth/signup") }}>Register</span></p>
                 </form>
             </div>
         </section>
